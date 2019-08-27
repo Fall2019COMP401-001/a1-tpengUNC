@@ -108,4 +108,4 @@ public class A1Jedi {
 		scan.close();
 		
 	}
-}
+} 
