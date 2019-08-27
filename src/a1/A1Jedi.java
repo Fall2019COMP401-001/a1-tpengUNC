@@ -38,6 +38,9 @@ public class A1Jedi {
 			scan.next();
 			scan.next();
 			
+			//Keeps track of if an item in the list was bought (true if bought, false otherwise)
+			boolean[] itemBought = new boolean[itemNames.length];
+			
 			//Records the number of items bought by this customer
 			int numItemsBought = scan.nextInt();
 			
@@ -45,7 +48,7 @@ public class A1Jedi {
 			//the numItems element that corresponds to the item name in itemNames
 			for(int j = 0; j < numItemsBought; j++) {
 				
-				//Records the number of that specific item bought by this customer
+				//Records the number of the specific item bought by this customer
 				int itemCount = scan.nextInt();
 				
 				//Records the name of this specific item
@@ -60,11 +63,24 @@ public class A1Jedi {
 					if(itemName.equals(itemNames[k])) {
 						
 						numItems[k] += itemCount;
-						numPeople[k]++;
+						itemBought[k] = true;
 						
 						break;
 						
 					}
+					
+				}
+				
+			}
+			
+			//Go through the list of items that this customer bought 
+			for(int l = 0; l < itemBought.length; l++) {
+				
+				//If the customer bought an item in the item list, then...
+				if(itemBought[l]) {
+					
+					//Increase the number of people who bought that item by 1
+					numPeople[l]++;
 					
 				}
 				
